@@ -120,12 +120,29 @@ var createNewProfile = function(){
 var printProfiles = function(profileList){
     var container = document.getElementById('profiles');
     container.innerHTML = "";
+
+    // sort the array by name
+    profileList.sort(profileCompareFunction);
+
     for(var i=0;i<profileList.length;i++){
         container.innerHTML = container.innerHTML+profileTemplate(profileList[i]);
     }
 
 }
+/**
+ * Sort By name compare function
+ * @param a
+ * @param b
+ * @returns {number}
+ */
+var profileCompareFunction =  function(a,b){
 
+    if(a.name< b.name){
+        return -1;
+    } else{
+        return +1;
+    }
+}
 /**
  * Search Profiles initiated by search box
  */
