@@ -151,8 +151,8 @@ var searchProfiles = function(){
     console.log("Searching for "+inputValue);
     var tempProfileList = [];
     for(var i=0;i<profileList.length;i++){
-        if((typeof profileList[i].name!=="undefined" && profileList[i].name.match(inputValue)) ||
-            typeof profileList[i].designation!=="undefined" && profileList[i].designation.match(inputValue)){
+        if((typeof profileList[i].name!=="undefined" && profileList[i].name.toLocaleLowerCase().match(inputValue.toLocaleLowerCase())) ||
+            typeof profileList[i].designation!=="undefined" && profileList[i].designation.toLocaleLowerCase().match(inputValue.toLocaleLowerCase())){
             tempProfileList.push(profileList[i]);
         }
     }
